@@ -9,7 +9,7 @@ jobs:
         id: selftest
 
         # Put your action repo here
-        uses: ssogden/gha-util@master
+        uses: ssogden/gha-util@main
 
       - name: Check outputs
         run: |
