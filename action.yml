@@ -44,6 +44,7 @@ runs:
 
     - name: Install Dependencies
       run: pip install -r requirements.txt
+      shell: bash
 
     - name: Run scripts
       # working-directory: ${{ github.action_path }}
