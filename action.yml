@@ -47,18 +47,19 @@ runs:
       shell: bash
 
     - name: Run scripts
-      # working-directory: ${{ github.action_path }}
+      working-directory: ${{ github.action_path }}
       run: |
         ls -la
         src/goodbye.sh
-        python src/hello.py
       shell: bash
 
     - name: Pass Inputs to Shell
       run: |
           echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
       shell: bash
+
     - name: Fetch the number's square
       id: get-square
+      working-directory: ${{ github.action_path }}
       run: python src/get_square.py
       shell: bash
