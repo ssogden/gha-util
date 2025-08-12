@@ -30,9 +30,14 @@ runs:
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
-    - name: Run goodbye.sh
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Run scripts
       working-directory: ${{ github.action_path }}
       run: |
         ls -la
         scripts/goodbye.sh
+        python3 scripts/hello.py
       shell: bash
