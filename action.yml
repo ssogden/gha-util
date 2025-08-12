@@ -31,7 +31,8 @@ runs:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
     - name: Run goodbye.sh
+      working-directory: ${{ github.action_path }}
       run: |
         ls -la
-        ${{ github.action_path }}/scripts/goodbye.sh
+        scripts/goodbye.sh
       shell: bash
