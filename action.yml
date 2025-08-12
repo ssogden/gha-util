@@ -1,0 +1,13 @@
+name: "Python Container Action Template"
+description: "Testing Python container actions"
+author: "ssogden"
+inputs:
+  myInput:
+    description: "Input to use"
+    default: "world"
+outputs:
+  myOutput:
+    description: "Output from the action"
+runs:
+  using: "docker"
+  image: "Dockerfile"
