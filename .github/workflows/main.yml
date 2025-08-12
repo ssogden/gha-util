@@ -11,7 +11,6 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
           num: 7
-          api-token: ${{ secrets.GITHUB_TOKEN }}
       - run: echo random-number "$RANDOM_NUMBER"
         shell: bash
         env:
@@ -20,7 +19,3 @@ jobs:
         shell: bash
         env:
           NUM_SQUARED: ${{ steps.foo.outputs.num-squared }}
-      - run: echo user details
-        shell: bash
-        env:
-          NUM_SQUARED: ${{ steps.foo.outputs.user }}
