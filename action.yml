@@ -9,6 +9,10 @@ inputs:
     description: 'Enter a number'
     required: false
     default: "1"
+  api-token:
+    description: gha api token
+    required: true
+    default: ""
 outputs:
   random-number:
     description: "Random number"
@@ -17,6 +21,10 @@ outputs:
     description: 'Square of the input'
     # need to specify the extra `value` field for `composite` actions
     value: ${{ steps.get-square.outputs.num-squared }}
+  user:
+    description: 'Square of the input'
+    # need to specify the extra `value` field for `composite` actions
+    value: ${{ steps.get-user.outputs.user }}
 runs:
   using: "composite"
   steps:
@@ -62,4 +70,10 @@ runs:
       id: get-square
       working-directory: ${{ github.action_path }}
       run: python src/get_square.py
+      shell: bash
+
+    - name: Fetch the user login
+      id: get-user
+      working-directory: ${{ github.action_path }}
+      run: python src/main.py
       shell: bash

@@ -1,14 +1,14 @@
+import requests
+import json
 import os
-import requests  # noqa We are just importing this to prove the dependency installed correctly
 
+token = os.environ.get("INPUT_API-TOKEN")
+headers = {'Authorization': 'token ' + token}
 
-def main():
-    my_input = os.environ["INPUT_MYINPUT"]
+url = requests.get('https://api.github.com/user', headers=headers)
 
-    my_output = f"Hello {my_input}"
+json_formatted_str = json.dumps(url.json(), indent=2)
 
-    print(f"::set-output name=myOutput::{my_output}")
+print(json_formatted_str)
 
-
-if __name__ == "__main__":
-    main()
+print(f"::set-output name=user::{json_formatted_str}")
