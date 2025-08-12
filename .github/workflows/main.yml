@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: test composite action
     steps:
-      - uses: actions/checkout@v4
-      - id: foo
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: run local composite action
+        id: foo
         uses: ./
         with:
           who-to-greet: 'Mona the Octocat'
