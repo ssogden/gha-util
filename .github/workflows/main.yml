@@ -10,7 +10,12 @@ jobs:
         uses: ./
         with:
           who-to-greet: 'Mona the Octocat'
+          num: 7
       - run: echo random-number "$RANDOM_NUMBER"
         shell: bash
         env:
           RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}
+      - run: echo num squared "$NUM_SQUARED"
+        shell: bash
+        env:
+          NUM_SQUARED: ${{ steps.foo.outputs.num-squared }}
